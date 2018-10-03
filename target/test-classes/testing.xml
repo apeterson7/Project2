@@ -1,0 +1,32 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name = "Wiki">
+<!--  
+<test name="languages">
+<parameter name="wikipedia" value="https://www.wikipedia.org/"></parameter>
+
+<classes>
+
+	<class name="basicTest.WikiLang"></class>
+	<class name="basicTest.WikiSearch"></class>
+</classes>
+
+</test>-->
+
+<test name = "Smoke test">
+<groups>
+
+<run>
+<include name="smoke">
+</include>
+</run>
+</groups>
+<classes>
+	<class name="basicTest.WikiLang"></class>
+	<class name="basicTest.WikiSearch"></class>
+</classes>
+</test>
+
+
+
+</suite>
