@@ -27,7 +27,10 @@ public class ReportsCaliber {
 		List<WebElement> webEls = webEl.findElements(By.tagName("li"));
 		//System.out.println(webEls.size());
 		return webEls.get(webEls.size()-2);
-		
+	}
+	
+	public WebElement getFirstNameInTable() {
+		return driver.findElement(By.xpath("//*[@id=\"caliber-container\"]/div/div/div[1]/div[1]/div/div/div[2]/div/div/table/tbody/tr[1]/th"));
 	}
 
 }
