@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="3" passed="2">
+<testng-results skipped="0" failed="1" ignored="0" total="4" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7668" started-at="2018-10-04T14:54:51Z" finished-at="2018-10-04T14:54:58Z">
+  <suite name="Default suite" duration-ms="8341" started-at="2018-10-04T15:40:13Z" finished-at="2018-10-04T15:40:21Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7668" started-at="2018-10-04T14:54:51Z" finished-at="2018-10-04T14:54:58Z">
+    <test name="Default test" duration-ms="8341" started-at="2018-10-04T15:40:13Z" finished-at="2018-10-04T15:40:21Z">
       <class name="basicTest.CaliberHome">
-        <test-method status="PASS" signature="setUpDriverAndPage()[pri:0, instance:basicTest.CaliberHome@685cb137]" name="setUpDriverAndPage" is-config="true" duration-ms="4312" started-at="2018-10-04T14:54:46Z" finished-at="2018-10-04T14:54:51Z">
+        <test-method status="PASS" signature="setUpDriverAndPage()[pri:0, instance:basicTest.CaliberHome@685cb137]" name="setUpDriverAndPage" is-config="true" duration-ms="4172" started-at="2018-10-04T15:40:09Z" finished-at="2018-10-04T15:40:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpDriverAndPage -->
-        <test-method status="PASS" signature="login()[pri:1, instance:basicTest.CaliberHome@685cb137]" name="login" duration-ms="2709" started-at="2018-10-04T14:54:51Z" finished-at="2018-10-04T14:54:53Z">
+        <test-method status="PASS" signature="login()[pri:1, instance:basicTest.CaliberHome@685cb137]" name="login" duration-ms="2249" started-at="2018-10-04T15:40:13Z" finished-at="2018-10-04T15:40:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method status="PASS" signature="checkHomePageHeader()[pri:2, instance:basicTest.CaliberHome@685cb137]" name="checkHomePageHeader" duration-ms="1774" started-at="2018-10-04T14:54:53Z" finished-at="2018-10-04T14:54:55Z">
+        <test-method status="PASS" signature="checkHomePageHeader()[pri:2, instance:basicTest.CaliberHome@685cb137]" name="checkHomePageHeader" duration-ms="1598" started-at="2018-10-04T15:40:15Z" finished-at="2018-10-04T15:40:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkHomePageHeader -->
-        <test-method status="FAIL" signature="checkStateSelectorQualityAudit()[pri:3, instance:basicTest.CaliberHome@685cb137]" name="checkStateSelectorQualityAudit" duration-ms="3124" started-at="2018-10-04T14:54:55Z" finished-at="2018-10-04T14:54:58Z">
+        <test-method status="PASS" signature="checkStateSelectorQualityAudit()[pri:3, instance:basicTest.CaliberHome@685cb137]" name="checkStateSelectorQualityAudit" duration-ms="1156" started-at="2018-10-04T15:40:17Z" finished-at="2018-10-04T15:40:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkStateSelectorQualityAudit -->
+        <test-method status="FAIL" signature="checkStateSelectorWeeklyProgress()[pri:4, instance:basicTest.CaliberHome@685cb137]" name="checkStateSelectorWeeklyProgress" duration-ms="3285" started-at="2018-10-04T15:40:18Z" finished-at="2018-10-04T15:40:21Z">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"option[value='object:1189']"}
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='home']/div[2]/div/div[2]/div/div/div[1]/select[2]/option[4]"}
   (Session info: chrome=69.0.3497.100)
   (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
@@ -30,12 +34,12 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
 System info: host: 'DESKTOP-5676KI8', ip: '10.252.5.166', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\ALEXPE~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:56408}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
-Session ID: 877f856b674984d213c5479debc0fe1f
-*** Element info: {Using=css selector, value=option[value='object:1189']}]]>
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\ALEXPE~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:59765}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: 1a0953f361bc67cacc8cec1bf712d88a
+*** Element info: {Using=xpath, value=//*[@id='home']/div[2]/div/div[2]/div/div/div[1]/select[2]/option[4]}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"option[value='object:1189']"}
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='home']/div[2]/div/div[2]/div/div/div[1]/select[2]/option[4]"}
   (Session info: chrome=69.0.3497.100)
   (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
@@ -43,9 +47,9 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
 System info: host: 'DESKTOP-5676KI8', ip: '10.252.5.166', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\ALEXPE~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:56408}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
-Session ID: 877f856b674984d213c5479debc0fe1f
-*** Element info: {Using=css selector, value=option[value='object:1189']}
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\ALEXPE~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:59765}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: 1a0953f361bc67cacc8cec1bf712d88a
+*** Element info: {Using=xpath, value=//*[@id='home']/div[2]/div/div[2]/div/div/div[1]/select[2]/option[4]}
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -59,11 +63,11 @@ at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.ja
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:465)
-at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:473)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-at pages.MainCaliber.getQualityAuditStateFlorida(MainCaliber.java:66)
-at basicTest.CaliberHome.checkStateSelectorQualityAudit(CaliberHome.java:57)
+at pages.MainCaliber.getWeeklyProgressStateFlorida(MainCaliber.java:87)
+at basicTest.CaliberHome.checkStateSelectorWeeklyProgress(CaliberHome.java:70)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -94,8 +98,8 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkStateSelectorQualityAudit -->
-        <test-method status="PASS" signature="cleanup()[pri:0, instance:basicTest.CaliberHome@685cb137]" name="cleanup" is-config="true" duration-ms="758" started-at="2018-10-04T14:54:58Z" finished-at="2018-10-04T14:54:59Z">
+        </test-method> <!-- checkStateSelectorWeeklyProgress -->
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:basicTest.CaliberHome@685cb137]" name="cleanup" is-config="true" duration-ms="856" started-at="2018-10-04T15:40:22Z" finished-at="2018-10-04T15:40:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanup -->

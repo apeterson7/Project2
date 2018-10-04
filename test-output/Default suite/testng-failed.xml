@@ -5,9 +5,9 @@
     <classes>
       <class name="basicTest.CaliberHome">
         <methods>
+          <include name="checkStateSelectorWeeklyProgress"/>
           <include name="setUpDriverAndPage"/>
           <include name="cleanup"/>
-          <include name="checkStateSelectorQualityAudit"/>
         </methods>
       </class> <!-- basicTest.CaliberHome -->
     </classes>

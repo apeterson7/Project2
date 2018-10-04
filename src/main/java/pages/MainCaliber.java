@@ -59,32 +59,36 @@ public class MainCaliber {
 	}
 	
 	public WebElement getQualityAuditStateVirginia() {
-		return driver.findElement(By.cssSelector("option[value='object:1188']"));
+		return driver.findElement(By.xpath("//*[@id='home']/div[2]/div/div[1]/div/div/div[1]/select[2]/option[2]"));
 	}
 	
 	public WebElement getQualityAuditStateFlorida() {
-		return driver.findElement(By.cssSelector("option[value='object:1189']"));
+		return driver.findElement(By.xpath("//*[@id='home']/div[2]/div/div[1]/div/div/div[1]/select/option[3]"));
 	}
 	
 	public WebElement getQualityAuditStateNewYork() {
-		return driver.findElement(By.cssSelector("option[value='object:1190']"));
+		return driver.findElement(By.xpath("//*[@id='home']/div[2]/div/div[1]/div/div/div[1]/select[2]/option[4]"));
 	}
-	
 	
 	public WebElement getQualityAuditFirstRecord() {
 		return driver.findElement(By.xpath("//*[@id='home']/div[2]/div/div[1]/div/div/div[2]/div[2]/table/tbody/tr[2]/th"));
 	}
 	
+	
+	public WebElement getWeeklyProgressSelector() {
+		return driver.findElement(By.cssSelector("select[ng-model='selectedLineState']"));
+	}
+	
 	public WebElement getWeeklyProgressStateVirginia() {
-		return driver.findElement(By.cssSelector("option[value='object:1333']"));
+		return driver.findElement(By.xpath("//*[@id='home']/div[2]/div/div[2]/div/div/div[1]/select/option[2]"));
 	}
 	
 	public WebElement getWeeklyProgressStateFlorida() {
-		return driver.findElement(By.cssSelector("option[value='object:1334']"));
+		return driver.findElement(By.xpath("//*[@id='home']/div[2]/div/div[2]/div/div/div[1]/select[2]/option[4]"));
 	}
 	
 	public WebElement getWeeklyProgressStateNewYork() {
-		return driver.findElement(By.cssSelector("option[value='object:1335']"));
+		return driver.findElement(By.xpath("//*[@id='home']/div[2]/div/div[2]/div/div/div[1]/select[2]/option[3]"));
 	}
 	
 	public WebElement getWeeklyProgressFirstRecord() {
