@@ -20,7 +20,7 @@ public class Cdriver {
 		
 		MainCaliber caliber = new MainCaliber(driver);
 		caliber.getUsername().sendKeys("calibot@revature.com");
-		caliber.getPassword().sendKeys("*6Ak4-&kXnNTfTh6");
+		caliber.getPassword().sendKeys("wrong");
 		caliber.getSubmitButton().click();
 		
 		
@@ -54,6 +54,6 @@ public class Cdriver {
 		
 		Thread.sleep(5000);
 		
-		driver.close();
+		//driver.close();
 	}
 }
