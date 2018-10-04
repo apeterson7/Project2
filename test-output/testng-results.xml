@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="5145" started-at="2018-10-04T19:09:15Z" finished-at="2018-10-04T19:09:20Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="5145" started-at="2018-10-04T19:09:15Z" finished-at="2018-10-04T19:09:20Z">
+      <class name="basicTest.CaliberAssessBatch">
+        <test-method status="PASS" signature="setUpDriverAndPage()[pri:0, instance:basicTest.CaliberAssessBatch@5c3bd550]" name="setUpDriverAndPage" is-config="true" duration-ms="14551" started-at="2018-10-04T19:09:00Z" finished-at="2018-10-04T19:09:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriverAndPage -->
+        <test-method status="PASS" signature="navigateToAssess()[pri:0, instance:basicTest.CaliberAssessBatch@5c3bd550]" name="navigateToAssess" duration-ms="5046" started-at="2018-10-04T19:09:15Z" finished-at="2018-10-04T19:09:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToAssess -->
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:basicTest.CaliberAssessBatch@5c3bd550]" name="cleanup" is-config="true" duration-ms="1067" started-at="2018-10-04T19:09:20Z" finished-at="2018-10-04T19:09:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanup -->
+      </class> <!-- basicTest.CaliberAssessBatch -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name = "Caliber">
+<!--  
+<test name="login">
+<parameter name="caliber" value="https://dev-caliber.revature.tech/caliber/#/vp/home"></parameter>
+
+<classes>
+
+	<class name="basicTest.CaliberHome"></class>
+</classes>
+
+</test>-->
+
+<test name = "login">
+
+<parameter name="caliber" value="https://dev-caliber.revature.tech/caliber/#/vp/home"></parameter>
+
+<groups>
+
+<!-- <run>
+<include name="smoke">
+</include>
+</run> -->
+</groups>
+<classes>
+	<class name="basicTest.CaliberLogin"></class>
+	<class name="basicTest.CaliberAssessBatch"></class>
+	<class name="basicTest.CaliberManageBatch"></class>
+	<class name="basicTest.CaliberPanel"></class>
+	<class name="basicTest.CaliberQualityAudit"></class>	
+	<class name="basicTest.CaliberReports"></class>	
+
+</classes>
+</test>
+
+
+
+</suite>
