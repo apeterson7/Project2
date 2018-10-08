@@ -4,6 +4,14 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.testng.TestListenerAdapter;
+import org.testng.TestNG;
+import org.testng.xml.Parser;
+import org.testng.xml.XmlSuite;
+
+import java.util.*;
 
 public class RequestHelper {
 
@@ -15,7 +23,14 @@ public class RequestHelper {
 			response.getWriter().append("{\"alex\":\"test\"}");
 		}
 		if(uri.equals("/project2/chomp.do")) {
-			response.getWriter().append("Gators are great");
+				TestListenerAdapter tla = new TestListenerAdapter();
+				TestNG testng = new TestNG();
+				List<String> suites = new ArrayList<String>();
+				suites.add("../../../tests/resources/testng.xml");
+				testng.setTestSuites(suites);
+				testng.run();
+				
+			    response.sendRedirect("../../../../test-output/emailable-report.html");
 		}
 		if(uri.equals("/project2/awesome.do")) {
 			response.getWriter().append("You completed a post");

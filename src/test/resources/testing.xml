@@ -24,12 +24,12 @@
 </run> -->
 </groups>
 <classes>
-	<class name="basicTest.CaliberLogin"></class>
+	<!-- <class name="basicTest.CaliberLogin"></class>
 	<class name="basicTest.CaliberAssessBatch"></class>
 	<class name="basicTest.CaliberManageBatch"></class>
 	<class name="basicTest.CaliberPanel"></class>
 	<class name="basicTest.CaliberQualityAudit"></class>	
-	<class name="basicTest.CaliberReports"></class>	
+	<class name="basicTest.CaliberReports"></class>	-->
 	<class name="basicTest.CaliberHome"></class>	
 </classes>
 </test>
