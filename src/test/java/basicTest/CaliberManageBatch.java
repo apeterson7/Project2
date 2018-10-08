@@ -27,7 +27,7 @@ public class CaliberManageBatch {
 		File file = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		driver = new ChromeDriver();
-		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/manage");
+		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/home");
 		caliber = new MainCaliber(driver);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
@@ -35,10 +35,14 @@ public class CaliberManageBatch {
 	@BeforeMethod
 //	@Parameters({"caliber"})
 	public void goToMainPage() {
-		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/manage");
+		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/home");
 	}
 	
-	
+	@Test
+	public void goToManageBatch() {
+		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/manage");
+		AssertJUnit.assertTrue(driver.findElement(By.id("manage")) != null);
+	}
 //	@Test
 //	public void login() {
 //		caliber.getUsername().sendKeys("calibot@revature.com");
