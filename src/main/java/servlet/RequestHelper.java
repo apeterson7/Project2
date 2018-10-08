@@ -26,11 +26,10 @@ public class RequestHelper {
 				TestListenerAdapter tla = new TestListenerAdapter();
 				TestNG testng = new TestNG();
 				List<String> suites = new ArrayList<String>();
-				suites.add("../../../tests/resources/testng.xml");
+				suites.add("testng.xml");
 				testng.setTestSuites(suites);
 				testng.run();
-				
-			    response.sendRedirect("../../../../test-output/emailable-report.html");
+			    response.getWriter().append("Success");
 		}
 		if(uri.equals("/project2/awesome.do")) {
 			response.getWriter().append("You completed a post");
