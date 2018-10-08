@@ -29,7 +29,7 @@ public class RequestHelper {
 				suites.add("testng.xml");
 				testng.setTestSuites(suites);
 				testng.run();
-			    response.getWriter().append("Success");
+			    response.getWriter().append("{\"test\":\"success\"");
 		}
 		if(uri.equals("/project2/awesome.do")) {
 			response.getWriter().append("You completed a post");
