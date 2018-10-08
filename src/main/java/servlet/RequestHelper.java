@@ -12,7 +12,7 @@ public class RequestHelper {
 		
 		String uri = request.getRequestURI();
 		if(uri.equals("/project2/hello.do")) {
-			response.getWriter().append("Hello everyone");
+			response.getWriter().append("{\"alex\":\"test\"");
 		}
 		if(uri.equals("/project2/chomp.do")) {
 			response.getWriter().append("Gators are great");
