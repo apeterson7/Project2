@@ -47,7 +47,6 @@ public class CaliberHome {
 	public void checkHomePageHeader() {
 		System.out.println(caliber.getHomePageHeader().getText());
 		AssertJUnit.assertEquals(caliber.getHomePageHeader().getText(),"Welcome to Caliber!");
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
 	}
 	
@@ -60,11 +59,13 @@ public class CaliberHome {
 		AssertJUnit.assertEquals(caliber.getQualityAuditFirstRecord().getText(), "Patrick Walsh 2018-08-19");
 		caliber.getQualityAuditStateNewYork().click();
 		AssertJUnit.assertEquals(caliber.getQualityAuditFirstRecord().getText(), "Ryan Lessley 2018-07-24");
+		
 	}
 	
-	/*
-	@Test
+
+	@Test(priority = 4)
 	public void checkStateSelectorWeeklyProgress() {
+		caliber.getWeeklyProgressSelector().click();
 		caliber.getWeeklyProgressStateFlorida().click();
 		AssertJUnit.assertEquals(caliber.getWeeklyProgressFirstRecord(), "Steven Kelsey 2018-08-19");
 		caliber.getWeeklyProgressStateVirginia().click();
@@ -72,7 +73,7 @@ public class CaliberHome {
 		caliber.getWeeklyProgressStateNewYork().click();
 		AssertJUnit.assertEquals(caliber.getWeeklyProgressFirstRecord(), "Ryan Lessley 2018-07-24");
 	}
-	*/
+	
 	
 	@AfterSuite
 	public void cleanup() {

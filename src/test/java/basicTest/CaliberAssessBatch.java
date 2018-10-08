@@ -2,12 +2,14 @@ package basicTest;
 
 import org.testng.annotations.Test;
 
+import pages.AssessCaliber;
 import pages.MainCaliber;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +20,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 
 public class CaliberAssessBatch {
-	public static MainCaliber caliber;
+	public static MainCaliber caliberLog;
+	public static AssessCaliber ac;
+
 	public static WebDriver driver;
 	
 
@@ -27,32 +31,31 @@ public class CaliberAssessBatch {
 		File file = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		driver = new ChromeDriver();
-		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/reports");
-		caliber = new MainCaliber(driver);
+		//puts us on the login page
+		driver.get("https://dev-caliber.revature.tech/");
+		
+		ac =  new AssessCaliber(driver);
+		ac.getUsername().sendKeys("calibot@revature.com");
+		ac.getPassword().sendKeys("*6Ak4-&kXnNTfTh6");
+		ac.getSubmitButton().click();
+		
+		
 		
 	}
 	
-	@BeforeMethod
+//	@BeforeMethod
 //	@Parameters({"caliber"})
-	public void goToMainPage() {
-		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/reports");
-	}
+//	public void goToMainPage() {
+//	}
+	
 	
 	@Test
-	public void login() {
-		caliber.getUsername().sendKeys("calibot@revature.com");
-		caliber.getPassword().sendKeys("*6Ak4-&kXnNTfTh6");
-		caliber.getSubmitButton().click();
-		AssertJUnit.assertEquals(driver.getTitle(), "Caliber | Performance Management");
+	public void navigateToAssess() {
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		ac.getAssessBatch().click();
+		
 	}
 	
-	@Test
-	public void invalidLogin() {
-		caliber.getUsername().sendKeys("calibot@revature.com");
-		caliber.getPassword().sendKeys("wrongpassword");
-		caliber.getSubmitButton().click();
-		AssertJUnit.assertTrue(driver.findElement(By.cssSelector("label[for='username']")).getText().equals("Username:"));
-	}
 	
 	@AfterSuite
 	public void cleanup() {
