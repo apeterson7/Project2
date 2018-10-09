@@ -38,10 +38,10 @@ public class CaliberAssessBatch {
 		//puts us on the login page
 		driver.get("https://dev-caliber.revature.tech/");
 
-		caliberAsse =  new AssessCaliber(driver);
-		caliberAsse.getUsername().sendKeys("calibot@revature.com");
-		caliberAsse.getPassword().sendKeys("*6Ak4-&kXnNTfTh6");
-		caliberAsse.getSubmitButton().click();
+		ac =  new AssessCaliber(driver);
+		ac.getUsername().sendKeys("calibot@revature.com");
+		ac.getPassword().sendKeys("*6Ak4-&kXnNTfTh6");
+		ac.getSubmitButton().click();
 
 
 
@@ -58,32 +58,32 @@ public class CaliberAssessBatch {
 	public void navigateToAssess() {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-		caliberAsse.getAssessBatch().click();
-		Assert.assertTrue(caliberAsse.isOnAssess());
+		ac.getAssessBatch().click();
+		Assert.assertTrue(ac.isOnAssess());
 
 	}
 
 	@Test(priority=3)
 	public void dropDownYear() {
 		String expected = "Aslam Gangji";
-		caliberAsse.getYearDropdown().click();
+		ac.getYearDropdown().click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		caliberAsse.selectYearWithData().click();
+		ac.selectYearWithData().click();
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		Assert.assertEquals(caliberAsse.getFirstNameInTable().getText().trim(), expected);
+		Assert.assertEquals(ac.getFirstNameInTable().getText().trim(), expected);
 	}
 
 	@Test(priority=2)
 	public void getPageWithData() throws InterruptedException {
 		String expectedName = "Ahmad Naser";
-		caliberAsse.getBatchDropdown().click();
-		caliberAsse.selectBatchWithData().click();
+		ac.getBatchDropdown().click();
+		ac.selectBatchWithData().click();
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 		
-		String result = caliberAsse.getFirstNameInTable().getText();
+		String result = ac.getFirstNameInTable().getText();
 		Assert.assertEquals(result.trim(), expectedName); 
 	}
 
@@ -91,17 +91,19 @@ public class CaliberAssessBatch {
 	//The following tests pertain to the create assignment window
 	@Test(priority=4)
 	public void openAssignmentWindow() {
+
 		caliberAsse.openAssignmentWindow();
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliberAsse.getWindowStyle()));
 		AssertJUnit.assertTrue(e != null);
+
 	}
 
 	
 	@Test(priority = 5)
 	public void cancelAssignmentX() {
 	String expected = "display: none;";
-	caliberAsse.clickX();
+	ac.clickX();
 	//This is bad but since nothing is loading it may be the only solution
 	try {
 		Thread.sleep(500);
@@ -109,8 +111,8 @@ public class CaliberAssessBatch {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	Assert.assertEquals(caliberAsse.getWindowStyle().trim(),expected);
-	caliberAsse.openAssignmentWindow();
+	Assert.assertEquals(ac.getWindowStyle().trim(),expected);
+	ac.openAssignmentWindow();
 	}
 
 	@Test(priority = 6)
@@ -123,7 +125,7 @@ public class CaliberAssessBatch {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		caliberAsse.clickClose();
+		ac.clickClose();
 		//This is bad but since nothing is loading it may be the only solution
 		try {
 			Thread.sleep(500);
@@ -131,7 +133,7 @@ public class CaliberAssessBatch {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Assert.assertEquals(caliberAsse.getWindowStyle().trim(),expected);
+		Assert.assertEquals(ac.getWindowStyle().trim(),expected);
 	}
 
 //	@Test
