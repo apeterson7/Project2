@@ -13,14 +13,14 @@ import org.testng.TestNG;
 public class Practice {
 
 	public static void main(String[] args) throws IOException {
-		/*
-		TestListenerAdapter tla = new TestListenerAdapter();
+		
+		
 		TestNG testng = new TestNG();
 		List<String> suites = new ArrayList<String>();
 		suites.add("testng.xml");
 		testng.setTestSuites(suites);
-		testng.run();*/
-		
+		testng.run();
+		/*
 		Properties props = new Properties();
 		FileInputStream in; 
 		in = new FileInputStream("src/main/resources/connection.properties");
@@ -29,6 +29,7 @@ public class Practice {
 		System.out.println(props.getProperty("username"));
 		System.out.println(props.getProperty("password"));
 		System.out.println(props.getProperty("name3"));
+		*/
 
 	}
 }

@@ -62,30 +62,47 @@ public class CaliberHome {
 		AssertJUnit.assertEquals(caliber.getHomePageHeader().getText(),"Welcome to Caliber!");
 
 	}
-	
 
 	@Test(priority = 3)
-	public void checkStateSelectorQualityAudit() {
+	public void checkStateSelectorQualityAuditFlorida() {
 		caliber.getQualityAuditStateFlorida().click();
 		AssertJUnit.assertEquals(caliber.getQualityAuditFirstRecord().getText(), "Blake Kruppa 2018-07-30");
-		caliber.getQualityAuditStateVirginia().click();
-		AssertJUnit.assertEquals(caliber.getQualityAuditFirstRecord().getText(), "Patrick Walsh 2018-08-19");
-		caliber.getQualityAuditStateNewYork().click();
-		AssertJUnit.assertEquals(caliber.getQualityAuditFirstRecord().getText(), "Ryan Lessley 2018-07-24");
 		
 	}
 	
-
 	@Test(priority = 4)
-	public void checkStateSelectorWeeklyProgress() {
+	public void checkStateSelectorQualityAuditVirginia() {
+		caliber.getQualityAuditStateVirginia().click();
+		AssertJUnit.assertEquals(caliber.getQualityAuditFirstRecord().getText(), "Patrick Walsh 2018-08-19");
+	}
+	
+	@Test(priority = 5)
+	public void checkStateSelectorQualityAuditNewYork() {
+		caliber.getQualityAuditStateNewYork().click();
+		AssertJUnit.assertEquals(caliber.getQualityAuditFirstRecord().getText(), "Ryan Lessley 2018-07-24");
+	}
+	
+	@Test(priority = 6)
+	public void checkStateSelectorWeeklyProgressFlorida() {
 		caliber.getWeeklyProgressSelector().click();
 		caliber.getWeeklyProgressStateFlorida().click();
 		AssertJUnit.assertEquals(caliber.getWeeklyProgressFirstRecord(), "Steven Kelsey 2018-08-19");
+
+	}
+	
+	@Test(priority = 7)
+	public void checkStateSelectorWeeklyProgressVirginia() {
+		caliber.getWeeklyProgressSelector().click();
 		caliber.getWeeklyProgressStateVirginia().click();
 		AssertJUnit.assertEquals(caliber.getWeeklyProgressFirstRecord(), "Patrick Walsh 2018-08-19");
+		
+	}
+	
+	@Test(priority = 8)
+	public void checkStateSelectorWeeklyProgressNewYork() {
+		caliber.getWeeklyProgressSelector().click();
 		caliber.getWeeklyProgressStateNewYork().click();
 		AssertJUnit.assertEquals(caliber.getWeeklyProgressFirstRecord(), "Ryan Lessley 2018-07-24");
-		
 	}
 	
 
