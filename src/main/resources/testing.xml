@@ -34,9 +34,11 @@
 	<class name="basicTest.CaliberPanel"></class>
 	<class name="basicTest.CaliberQualityAudit"></class>	
 	<class name="basicTest.CaliberReports"></class>	
+	
+	<class name="basicTest.CaliberHome"></class>
 	-->
 	
-	<class name="basicTest.CaliberHome"></class>	
+	<class name="cuke.NGCucumberRunner"></class>	
 </classes>
 </test>
 
