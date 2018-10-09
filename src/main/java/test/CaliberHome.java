@@ -1,6 +1,10 @@
 package test;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -10,6 +14,7 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import pages.MainCaliber;
@@ -17,15 +22,22 @@ import pages.MainCaliber;
 public class CaliberHome {
 	public static MainCaliber caliber;
 	public static WebDriver driver;
-	
+	private static Properties props;
 
+	
+	
 	@BeforeSuite
-	public void setUpDriverAndPage() {
+	public void setUpDriverAndPage() throws IOException {
 		File file = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		driver = new ChromeDriver();
 		driver.get("https://dev-caliber.revature.tech/");
 		caliber = new MainCaliber(driver);
+		
+		props = new Properties();
+		FileInputStream in; 
+		in = new FileInputStream("src/main/resources/connection.properties");
+		props.load(in);
 		
 	}
 	
@@ -33,8 +45,8 @@ public class CaliberHome {
 	
 	@Test(priority = 1)
 	public void login() throws InterruptedException {
-		caliber.getUsername().sendKeys("calibot@revature.com");
-		caliber.getPassword().sendKeys("*6Ak4-&kXnNTfTh6");
+		caliber.getUsername().sendKeys(props.getProperty("username"));
+		caliber.getPassword().sendKeys(props.getProperty("password"));
 		caliber.getSubmitButton().click();
 		AssertJUnit.assertEquals(driver.getTitle(), "Caliber | Performance Management");
 		//Try to get it to wait until the page loads?
@@ -76,6 +88,13 @@ public class CaliberHome {
 		
 	}
 	
+
+	@DataProvider(name = "Employee Names")
+	public static Object[][] example(){
+		return new Object[][] {
+			{"RuneScape"},{"World of Warcraft"},{"Guild Wars"}
+		};
+	}
 	
 	@AfterSuite
 	public void cleanup() {
