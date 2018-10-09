@@ -15,4 +15,16 @@ public class ManageCaliber {
 	public WebElement getCreateBatchModal() {
 		return driver.findElement(By.cssSelector("#createBatchModal"));
 	}
+	public WebElement getCreateBatchXClosedButton() {
+		return driver.findElement(By.cssSelector("#createBatchModal > div > div > div.modal-header > button"));
+	}
+	public WebElement getCreateBatchClosedButton() {
+		return driver.findElement(By.cssSelector("#createBatchModal > div > div > div.modal-footer > button"));
+	}
+	public WebElement getImportBatchLink() {
+		return driver.findElement(By.cssSelector("li[data-target='#importBatchModal']"));
+	}
+	public WebElement getImportBatchModal() {
+		return driver.findElement(By.cssSelector("#importBatchModal"));
+	}
 }
