@@ -22,7 +22,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class CaliberAssessBatch {
 	public static MainCaliber caliberLog;
-	public static AssessCaliber caliberAsse;
+	public static AssessCaliber ac;
 
 	public static WebDriver driver;
 
@@ -34,10 +34,12 @@ public class CaliberAssessBatch {
 		driver = new ChromeDriver();
 		//puts us on the login page
 		driver.get("https://dev-caliber.revature.tech/");
+
 		caliberAsse =  new AssessCaliber(driver);
 		caliberAsse.getUsername().sendKeys("calibot@revature.com");
 		caliberAsse.getPassword().sendKeys("*6Ak4-&kXnNTfTh6");
 		caliberAsse.getSubmitButton().click();
+
 
 
 
@@ -52,6 +54,7 @@ public class CaliberAssessBatch {
 	@Test(priority=1)
 	public void navigateToAssess() {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
 		caliberAsse.getAssessBatch().click();
 		Assert.assertTrue(caliberAsse.isOnAssess());
 
@@ -75,6 +78,7 @@ public class CaliberAssessBatch {
 		caliberAsse.selectBatchWithData().click();
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
 		
 		String result = caliberAsse.getFirstNameInTable().getText();
 		Assert.assertEquals(result.trim(), expectedName); 
