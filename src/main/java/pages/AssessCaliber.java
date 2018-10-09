@@ -77,8 +77,8 @@ public class AssessCaliber {
 		
 	}
 	
-	public String getWindowStyle() {
-		return driver.findElement(By.id("createAssessmentModal")).getAttribute("style");
+	public WebElement getWindowStyle() {
+		return driver.findElement(By.id("createAssessmentModal"));
 	}
 	
 	public void clickX() {

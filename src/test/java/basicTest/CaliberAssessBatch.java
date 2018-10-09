@@ -13,7 +13,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.AfterSuite;
@@ -22,7 +25,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class CaliberAssessBatch {
 	public static MainCaliber caliberLog;
-	public static AssessCaliber ac;
+	public static AssessCaliber caliberAsse;
 
 	public static WebDriver driver;
 
@@ -88,15 +91,12 @@ public class CaliberAssessBatch {
 	//The following tests pertain to the create assignment window
 	@Test(priority=4)
 	public void openAssignmentWindow() {
-		String expected = "display: block; padding-right: 17px;";
-		ac.openAssignmentWindow();
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Assert.assertEquals(ac.getWindowStyle().trim(),expected);
+
+		caliberAsse.openAssignmentWindow();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliberAsse.getWindowStyle()));
+		AssertJUnit.assertTrue(e != null);
+
 	}
 
 	
