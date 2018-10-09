@@ -21,6 +21,7 @@ public class CaliberManageBatch {
 	public static ManageCaliber caliber;
 	public static MainCaliber mCaliber;
 	public static WebDriver driver;
+	WebDriverWait wait;
 	
 
 	@BeforeSuite
@@ -31,6 +32,7 @@ public class CaliberManageBatch {
 		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/manage");
 		caliber = new ManageCaliber(driver);
 		mCaliber = new MainCaliber(driver);
+		wait = new WebDriverWait(driver, 5);
 		
 		mCaliber.getUsername().sendKeys("calibot@revature.com");
 		mCaliber.getPassword().sendKeys("*6Ak4-&kXnNTfTh6");
@@ -52,8 +54,30 @@ public class CaliberManageBatch {
 //		WebDriverWait wait = new WebDriverWait(driver, 5);
 //		wait.until(ExpectedConditions.elementToBeClickable(caliber.getCreateBatchLink()));
 		caliber.getCreateBatchLink().click();
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+//		WebDriverWait wait = new WebDriverWait(driver, 5);
 		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchModal()));
+		AssertJUnit.assertTrue(e != null);
+	}
+	@Test
+	public void closeCreateNewBatch() {
+		caliber.getCreateBatchClosedButton().click();
+//		WebDriverWait wait = new WebDriverWait(driver, 5);
+		boolean invisibility = wait.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchModal()));
+		AssertJUnit.assertTrue(invisibility);
+	}
+	@Test void closeCreateNewBatchX() {
+		caliber.getCreateBatchLink().click();
+		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchModal()));
+		AssertJUnit.assertTrue(e != null);
+		caliber.getCreateBatchXClosedButton().click();
+		boolean invisibility = w.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchXClosedButton()));
+		AssertJUnit.assertTrue(invisibility);
+	}
+	@Test(enabled=false)
+	public void clickImportNewBatch() {
+		caliber.getImportBatchLink().click();
+//		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getImportBatchModal()));
 		AssertJUnit.assertTrue(e != null);
 	}
 //	@Test
