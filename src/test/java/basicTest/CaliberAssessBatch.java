@@ -63,20 +63,20 @@ public class CaliberAssessBatch {
 
 	}
 
-	@Test(priority=3)
+	@Test(priority=2)
 	public void dropDownYear() {
-		String expected = "Aslam Gangji";
-		caliberAsse.getYearDropdown().click();
+		String expected = "Bob Dylan";
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		caliberAsse.getYearDropdown().click();
 		caliberAsse.selectYearWithData().click();
 		
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Assert.assertEquals(caliberAsse.getFirstNameInTable().getText().trim(), expected);
 	}
 
-	@Test(priority=2)
+	@Test(priority=3)
 	public void getPageWithData() throws InterruptedException {
-		String expectedName = "Ahmad Naser";
+		String expectedName = "Castillo, Erika";
 		caliberAsse.getBatchDropdown().click();
 		caliberAsse.selectBatchWithData().click();
 
@@ -102,43 +102,33 @@ public class CaliberAssessBatch {
 	public void cancelAssignmentX() {
 	String expected = "display: none;";
 	caliberAsse.clickX();
-	//This is bad but since nothing is loading it may be the only solution
-	try {
-		Thread.sleep(500);
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	Assert.assertEquals(caliberAsse.getWindowStyle().trim(),expected);
-	caliberAsse.openAssignmentWindow();
+	WebDriverWait wait = new WebDriverWait(driver, 5);
+	boolean e = wait.until(ExpectedConditions.invisibilityOf(caliberAsse.getWindowStyle()));
+	AssertJUnit.assertTrue(e );
 	}
 
 	@Test(priority = 6)
 	public void cancelAssignmentClose() {
 		
-		String expected = "display: none;";
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		caliberAsse.openAssignmentWindow();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliberAsse.getWindowStyle()));
+		
 		caliberAsse.clickClose();
-		//This is bad but since nothing is loading it may be the only solution
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Assert.assertEquals(caliberAsse.getWindowStyle().trim(),expected);
+		boolean b = wait.until(ExpectedConditions.invisibilityOf(caliberAsse.getWindowStyle()));
+		AssertJUnit.assertTrue(b );
 	}
 
-//	@Test
-//	public void invalidAssignment() {
-//		//TODO
-//	}
-//
+	@Test(priority = 7)
+	public void invalidAssignment() {
+		caliberAsse.openAssignmentWindow();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliberAsse.getWindowStyle()));
+		caliberAsse.clickSave();
+		e = wait.until(ExpectedConditions.visibilityOf(caliberAsse.getWindowStyle()));
+		AssertJUnit.assertTrue(e != null);
+		}
+
 	@AfterSuite
 	public void cleanup() {
 		driver.quit();

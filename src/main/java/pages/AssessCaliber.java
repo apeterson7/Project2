@@ -35,10 +35,7 @@ public class AssessCaliber {
 	}
 	
 	//DropDown Elements
-	public WebElement getYearDropDown() {
-		return driver.findElement(By.linkText("2018"));
-	}
-
+	
 	public WebElement getBatchDropdown() {
 		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div/ul/li[2]"));
 	}
@@ -46,7 +43,7 @@ public class AssessCaliber {
 	public WebElement selectBatchWithData() {
 		WebElement webEl = getBatchDropdown();
 		List<WebElement> webEls = webEl.findElements(By.tagName("li"));
-		return webEls.get(webEls.size()-2);
+		return webEls.get(webEls.size()-1);
 	}
 	
 	public WebElement getFirstNameInTable() {
@@ -54,7 +51,7 @@ public class AssessCaliber {
 	}
 	
 	public WebElement getYearDropdown() {
-		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div/ul/li[2]"));
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div/ul/li[1]"));
 	}
 	
 	public WebElement selectYearWithData() {
@@ -88,6 +85,10 @@ public class AssessCaliber {
 	public void clickClose() {
 		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[2]/button")).click();
 		
+	}
+	
+	public void clickSave() {
+		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[2]/input")).click();
 	}
 }
 
