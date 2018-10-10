@@ -14,7 +14,20 @@ public class ManageCaliber {
 //		return driver.findElement(By.cssSelector("#manage > div:nth-child(2) > div > div > table > tbody")).findElement(By.cssSelector("tr:last-child"));
 		return driver.findElement(By.cssSelector("#manage > div:nth-child(2) > div > div > table > tbody > tr:last-child"));
 	}
+	// Delete batch modal
+	public WebElement getDeleteBatchModal() {
+		return driver.findElement(By.cssSelector("#deleteBatchModal"));
+	}
+	public WebElement getDeleteBatchDelButton() {
+		return driver.findElement(By.cssSelector("#deleteBatchModal > div > div > div.modal-footer > input"));
+	}
+	public WebElement getDeleteBatchCancelButton() {
+		return driver.findElement(By.cssSelector("#deleteBatchModal > div > div > div.modal-footer > button"));
+	}
 	// Last Row of Table
+	public WebElement getDeleteBatchButton() {
+		return driver.findElement(By.cssSelector("#manage > div:nth-child(2) > div > div > table > tbody > tr:last-child > td:nth-child(13) > a"));
+	}
 	public WebElement getTrainingNameFromLastRow() {
 		return driver.findElement(By.cssSelector("#manage > div:nth-child(2) > div > div > table > tbody > tr:last-child > td:nth-child(1)"));
 	}
