@@ -112,5 +112,16 @@ public class AssessCaliber {
 	public WebElement getWeekAddButton() {
 		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[11]/a"));
 	}
+
+	public List<WebElement> getListOfWeeks(){
+		WebElement webEl = driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul"));
+		List<WebElement> webEls = webEl.findElements(By.tagName("li"));
+		return webEls;
+	}
+	
+	public WebElement getWeekWindow() {
+		return driver.findElement(By.xpath("//*[@id=\"confirmingweeks\"]/div/div"));
+	}
+
 }
 
