@@ -111,13 +111,15 @@ public class CaliberManageBatch {
 		AssertJUnit.assertEquals(goodgrade, caliber.getGoodGradeFromLastRow().getText());
 		AssertJUnit.assertEquals(passinggrade, caliber.getPassingGradeFromLastRow().getText());
 	} //#manage > div:nth-child(2) > div > div > table > tbody > tr:nth-child(75) > td:nth-child(1)
-	@Test(enabled=false)
+	@Test(priority=4)
 	public void closeCreateNewBatch() {
+		caliber.getCreateBatchLink().click();
+		wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchModal()));
 		caliber.getCreateBatchClosedButton().click();
 		boolean invisibility = wait.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchModal()));
 		AssertJUnit.assertTrue(invisibility);
 	}
-	@Test(enabled=false) 
+	@Test(priority=3) 
 	public void closeCreateNewBatchX() {
 		caliber.getCreateBatchLink().click();
 		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchModal()));
