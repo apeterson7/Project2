@@ -29,14 +29,15 @@
 
 	<!-- 
 	<class name="basicTest.CaliberLogin"></class>
-	<class name="basicTest.CaliberAssessBatch"></class>
 	<class name="basicTest.CaliberManageBatch"></class>
 	<class name="basicTest.CaliberPanel"></class>
 	<class name="basicTest.CaliberQualityAudit"></class>	
 	<class name="basicTest.CaliberReports"></class>	
 	<class name="cuke.NGCucumberRunner"></class>	
 	-->
-		<class name="basicTest.CaliberHome"></class>
+		<class name="test.CaliberHome"></class>
+		<class name="test.CaliberAssessBatch"></class>
+		
 	
 </classes>
 </test>
