@@ -83,6 +83,7 @@ public class AssessCaliber {
 		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/div/button/span")).click();
 		
 	}
+	
 	public void clickClose() {
 		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[2]/button")).click();
 		
@@ -109,7 +110,7 @@ public class AssessCaliber {
 	}
 	
 	public WebElement getWeekAddButton() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[11]/a"));
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[11]/a"));
 	}
 }
 
