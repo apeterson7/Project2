@@ -138,6 +138,16 @@ public class CaliberManageBatch {
 		String name2 = caliber.getTrainingNameFromLastRow().getText();
 		AssertJUnit.assertFalse(name.equals(name2));
 	}
+	@Test(priority=6)
+	public void cancelDeleteBatch() {
+		String name = caliber.getTrainingNameFromLastRow().getText();
+		caliber.getDeleteBatchButton().click();
+		wait.until(ExpectedConditions.visibilityOf(caliber.getDeleteBatchModal()));
+		caliber.getDeleteBatchCancelButton().click();
+		wait.until(ExpectedConditions.invisibilityOf(caliber.getDeleteBatchModal()));
+		String name2 = caliber.getTrainingNameFromLastRow().getText();
+		AssertJUnit.assertEquals(name, name2);
+	}
 	@Test(enabled=false)
 	public void clickImportNewBatch() {
 		caliber.getImportBatchLink().click();
