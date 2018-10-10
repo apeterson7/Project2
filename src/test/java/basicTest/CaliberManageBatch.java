@@ -3,6 +3,7 @@ package basicTest;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -46,37 +47,88 @@ public class CaliberManageBatch {
 		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/manage");
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void clickCreateNewBatch() {
 //		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
-//		WebDriverWait wait = new WebDriverWait(webDriver, timeoutInSeconds);
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id<locator>));
-//		WebDriverWait wait = new WebDriverWait(driver, 5);
-//		wait.until(ExpectedConditions.elementToBeClickable(caliber.getCreateBatchLink()));
 		caliber.getCreateBatchLink().click();
-//		WebDriverWait wait = new WebDriverWait(driver, 5);
 		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchModal()));
 		AssertJUnit.assertTrue(e != null);
 	}
-	@Test
+	@Test(priority=2)
+	public void createNewBatchTrainingAllGoodInputs() {
+		String trainingname = "testing";
+		String startdate = "12122018";
+		String startdateF = "Dec 12, 2018";
+		String enddate = "12202018";
+		String enddateF = "Dec 20, 2018";
+		String goodgrade = "99";
+		String passinggrade = "98";
+		
+		caliber.getCreateBatchTrainingNameInput().sendKeys(trainingname);
+		
+		caliber.getCreateBatchTrainingType().click();
+		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchTrainingTypeSelectUniversity()));
+		String trainingtype = e.getText();
+		e.click();
+		
+		caliber.getCreateBatchSkillType().click();
+		e = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchSkillTypeSelect(2)));
+		String skilltype = e.getText();
+		e.click();
+		
+		caliber.getCreateBatchLocation().click();
+		String location = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchLocationSelect())).getText();
+		caliber.getCreateBatchLocationSelect().click();
+		
+		caliber.getCreateBatchTrainer().click();
+		String trainer = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchTrainerSelect())).getText();
+		caliber.getCreateBatchTrainerSelect().click();
+		
+		caliber.getCreateBatchCoTrainer().click();
+		String cotrainer = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchCoTrainerSelect())).getText();
+		if(cotrainer.toLowerCase().equals("none")) cotrainer = "";
+		caliber.getCreateBatchCoTrainerSelect().click();
+		
+		caliber.getCreateBatchStartDateInput().click();
+		caliber.getCreateBatchStartDateInput().sendKeys(startdate);
+		
+		caliber.getCreateBatchEndDateInput().click();
+		caliber.getCreateBatchEndDateInput().sendKeys(enddate);
+		
+		caliber.getCreateBatchGoodGradeInput().sendKeys(goodgrade);
+		caliber.getCreateBatchPassingGradeInput().clear();
+		caliber.getCreateBatchPassingGradeInput().sendKeys(passinggrade);
+		caliber.getCreateBatchSaveButton().click();
+		AssertJUnit.assertTrue(wait.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchModal())));
+		AssertJUnit.assertEquals(trainingname, caliber.getTrainingNameFromLastRow().getText());
+		AssertJUnit.assertEquals(trainingtype, caliber.getTrainingTypeFromLastRow().getText());
+		AssertJUnit.assertEquals(skilltype, caliber.getSkillTypeFromLastRow().getText());
+//		AssertJUnit.assertEquals(location, caliber.getLocationFromLastRow().getText());
+		AssertJUnit.assertEquals(trainer, caliber.getTrainerFromLastRow().getText());
+		AssertJUnit.assertEquals(cotrainer, caliber.getCotrainerFromLastRow().getText());
+		AssertJUnit.assertEquals(startdateF, caliber.getStartDateFromLastRow().getText());
+		AssertJUnit.assertEquals(enddateF, caliber.getEndDateFromLastRow().getText());
+		AssertJUnit.assertEquals(goodgrade, caliber.getGoodGradeFromLastRow().getText());
+		AssertJUnit.assertEquals(passinggrade, caliber.getPassingGradeFromLastRow().getText());
+	} //#manage > div:nth-child(2) > div > div > table > tbody > tr:nth-child(75) > td:nth-child(1)
+	@Test(enabled=false)
 	public void closeCreateNewBatch() {
 		caliber.getCreateBatchClosedButton().click();
-//		WebDriverWait wait = new WebDriverWait(driver, 5);
 		boolean invisibility = wait.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchModal()));
 		AssertJUnit.assertTrue(invisibility);
 	}
-	@Test void closeCreateNewBatchX() {
+	@Test(enabled=false) 
+	public void closeCreateNewBatchX() {
 		caliber.getCreateBatchLink().click();
 		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchModal()));
 		AssertJUnit.assertTrue(e != null);
 		caliber.getCreateBatchXClosedButton().click();
-		boolean invisibility = w.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchXClosedButton()));
+		boolean invisibility = wait.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchXClosedButton()));
 		AssertJUnit.assertTrue(invisibility);
 	}
 	@Test(enabled=false)
 	public void clickImportNewBatch() {
 		caliber.getImportBatchLink().click();
-//		WebDriverWait wait = new WebDriverWait(driver, 5);
 		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getImportBatchModal()));
 		AssertJUnit.assertTrue(e != null);
 	}
