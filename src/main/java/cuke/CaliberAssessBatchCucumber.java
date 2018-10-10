@@ -1,10 +1,14 @@
 package cuke;
 
 import java.io.File;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import cucumber.api.java.en.Given;
@@ -31,20 +35,23 @@ public class CaliberAssessBatchCucumber {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
 		caliberAsse.getAssessBatch().click();
-		Assert.assertTrue(caliberAsse.isOnAssess());
+		caliberAsse.getYearDropdown().click();
+		caliberAsse.selectYearWithData().click();
+		
 		
 	}
 
 	@When("^I click on the plus button$")
 	public void i_click_on_the_plus_button() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		List<WebElement> weeks = caliberAsse.getListOfWeeks();
+		weeks.get(weeks.size()-1).click();
 	}
 
 	@Then("^I should be able to see the new window$")
 	public void i_should_be_able_to_see_the_new_window() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(caliberAsse.getWeekWindow()));
+		driver.quit();
 	}
 
 }
