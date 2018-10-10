@@ -128,6 +128,27 @@ public class CaliberAssessBatch {
 		e = wait.until(ExpectedConditions.visibilityOf(caliberAsse.getWindowStyle()));
 		AssertJUnit.assertTrue(e != null);
 		}
+	
+	@Test(priority = 8, enabled = false)
+	public void validAssignment() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		caliberAsse.clickX();
+		wait.until(ExpectedConditions.invisibilityOf(caliberAsse.getWindowStyle()));
+		int before = caliberAsse.getListOfAssessments().size();
+		caliberAsse.openAssignmentWindow();
+		wait.until(ExpectedConditions.visibilityOf(caliberAsse.getWindowStyle()));
+		
+		caliberAsse.selectAssessmentCatagory();
+		caliberAsse.clickSave();
+		wait.until(ExpectedConditions.invisibilityOf(caliberAsse.getWindowStyle()));
+		int after = caliberAsse.getListOfAssessments().size();
+		Assert.assertEquals(before+1, after);
+		
+	}
+	
+	
+	
+	
 
 	@AfterSuite
 	public void cleanup() {

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -82,6 +83,7 @@ public class AssessCaliber {
 		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/div/button/span")).click();
 		
 	}
+	
 	public void clickClose() {
 		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[2]/button")).click();
 		
@@ -89,6 +91,26 @@ public class AssessCaliber {
 	
 	public void clickSave() {
 		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[2]/input")).click();
+	}
+	
+	public void selectAssessmentCatagory() {
+		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[1]/div/select")).click();
+		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[1]/div/select")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[2]/div[1]/input")).click();
+		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[2]/div[1]/input")).sendKeys("99");
+		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[2]/div[2]/select")).click();
+		driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[2]/div[2]/select")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);		
+		
+	}
+	
+	public List<WebElement> getListOfAssessments(){
+		WebElement webEl = driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/thead/tr"));
+		List<WebElement> webEls = webEl.findElements(By.tagName("th"));
+		return webEls;
+	}
+	
+	public WebElement getWeekAddButton() {
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[11]/a"));
 	}
 }
 
