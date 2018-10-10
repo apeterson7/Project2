@@ -128,6 +128,14 @@ public class CaliberManageBatch {
 		boolean invisibility = wait.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchXClosedButton()));
 		AssertJUnit.assertTrue(invisibility);
 	}
+	@Test(priority=6)
+	public void emptyCreateNewBatch() {
+		caliber.getCreateBatchLink().click();
+		wait.until(ExpectedConditions.visibilityOf(caliber.getCreateBatchModal()));
+		caliber.getCreateBatchSaveButton().click();
+		AssertJUnit.assertTrue(caliber.getCreateBatchModal().isDisplayed());
+		caliber.getCreateBatchClosedButton().click();
+	}
 	@Test(priority=5)
 	public void deleteLastBatch() {
 		String name = caliber.getTrainingNameFromLastRow().getText();
@@ -138,8 +146,9 @@ public class CaliberManageBatch {
 		String name2 = caliber.getTrainingNameFromLastRow().getText();
 		AssertJUnit.assertFalse(name.equals(name2));
 	}
-	@Test(priority=6)
+	@Test(priority=7)
 	public void cancelDeleteBatch() {
+		wait.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchModal()));
 		String name = caliber.getTrainingNameFromLastRow().getText();
 		caliber.getDeleteBatchButton().click();
 		wait.until(ExpectedConditions.visibilityOf(caliber.getDeleteBatchModal()));
@@ -148,7 +157,7 @@ public class CaliberManageBatch {
 		String name2 = caliber.getTrainingNameFromLastRow().getText();
 		AssertJUnit.assertEquals(name, name2);
 	}
-	@Test(enabled=false)
+	@Test(priority=8)
 	public void clickImportNewBatch() {
 		caliber.getImportBatchLink().click();
 		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getImportBatchModal()));
