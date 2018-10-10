@@ -10,7 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.AssertJUnit;
 
 import cucumber.api.PendingException;
-import cucumber.api.java.en.*;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import pages.MainCaliber;
 
 public class CaliberHomeCucumber {

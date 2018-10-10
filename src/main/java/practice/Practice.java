@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.testng.TestListenerAdapter;
 import org.testng.TestNG;
 
 public class Practice {
