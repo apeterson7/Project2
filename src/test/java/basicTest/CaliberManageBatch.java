@@ -56,7 +56,7 @@ public class CaliberManageBatch {
 	}
 	@Test(priority=2)
 	public void createNewBatchTrainingAllGoodInputs() {
-		String trainingname = "testing";
+		String trainingname = "a lot of testing";
 		String startdate = "12122018";
 		String startdateF = "Dec 12, 2018";
 		String enddate = "12202018";
@@ -127,6 +127,16 @@ public class CaliberManageBatch {
 		caliber.getCreateBatchXClosedButton().click();
 		boolean invisibility = wait.until(ExpectedConditions.invisibilityOf(caliber.getCreateBatchXClosedButton()));
 		AssertJUnit.assertTrue(invisibility);
+	}
+	@Test(priority=5)
+	public void deleteLastBatch() {
+		String name = caliber.getTrainingNameFromLastRow().getText();
+		caliber.getDeleteBatchButton().click();
+		wait.until(ExpectedConditions.visibilityOf(caliber.getDeleteBatchModal()));
+		caliber.getDeleteBatchDelButton().click();
+		wait.until(ExpectedConditions.invisibilityOf(caliber.getDeleteBatchModal()));
+		String name2 = caliber.getTrainingNameFromLastRow().getText();
+		AssertJUnit.assertFalse(name.equals(name2));
 	}
 	@Test(enabled=false)
 	public void clickImportNewBatch() {
