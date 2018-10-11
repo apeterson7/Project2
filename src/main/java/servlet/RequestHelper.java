@@ -4,12 +4,10 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.testng.TestListenerAdapter;
-import org.testng.TestNG;
-import org.testng.xml.Parser;
-import org.testng.xml.XmlSuite;
+import org.testng.*;
+
+
 
 import java.util.*;
 
@@ -24,9 +22,13 @@ public class RequestHelper {
 		}
 		if(uri.equals("/Project2/chomp.do")) {
 				//TestListenerAdapter tla = new TestListenerAdapter();
+				System.out.println("hello");
+				System.out.println(org.testng.TestNG.class.getName());
+				
 				TestNG testng = new TestNG();
+				testng.setVerbose(10);
 				List<String> suites = new ArrayList<String>();
-				suites.add("testng.xml");
+				suites.add("C:\\Users\\Alex Peterson\\Documents\\workspace-sts-3.9.5.RELEASE\\Project2\\src\\main\\resources\\testing.xml");
 				testng.setTestSuites(suites);
 				testng.run();
 				
