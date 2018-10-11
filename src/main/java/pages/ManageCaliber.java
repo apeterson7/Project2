@@ -136,4 +136,31 @@ public class ManageCaliber {
 	public WebElement getImportBatchModal() {
 		return driver.findElement(By.cssSelector("#importBatchModal"));
 	}
+	public WebElement getImportBatchSelector() {
+		return driver.findElement(By.cssSelector("#importId"));
+	}
+	public WebElement getImportBatchLastItem() {
+		return driver.findElement(By.cssSelector("#importId > option:last-child"));
+	}
+	public WebElement getImportBatchForm() {
+		return driver.findElement(By.cssSelector("#importBatchModal > div > div > div.modal-body > div.ng-scope"));
+	}
+	public WebElement getImportSelectLocation() {
+		return driver.findElement(By.cssSelector("#location"));
+	}
+	public WebElement getImportSelectedLocation() {
+		return driver.findElement(By.cssSelector("#location > optgroup:nth-child(2) > option"));
+	}
+	public WebElement getImportBatchTrainingName() {
+		WebElement divthing = driver.findElement(By.cssSelector("#importBatchModal > div > div > div.modal-body > div.ng-scope > div:nth-child(1) > div:nth-child(1)"));
+		return divthing.findElement(By.cssSelector("#name"));
+//		return driver.findElement(By.xpath("//*[@id=\"name\"]"));
+//		#importBatchModal > div > div > div.modal-body > div.ng-scope > div:nth-child(1) > div:nth-child(1) > label
+	}
+	public WebElement getImportBatchSubmitButton() {
+		return driver.findElement(By.cssSelector("#importBatchModal > div > div > div.modal-footer > input"));
+	}
+	public WebElement getImportBatchCancelButton() {
+		return driver.findElement(By.cssSelector("#importBatchModal > div > div > div.modal-footer > button"));
+	}
 }

@@ -163,6 +163,23 @@ public class CaliberManageBatch {
 		WebElement e = wait.until(ExpectedConditions.visibilityOf(caliber.getImportBatchModal()));
 		AssertJUnit.assertTrue(e != null);
 	}
+	@Test(priority=10)
+	public void cancelImportBatch() {
+		caliber.getImportBatchCancelButton().click();
+		AssertJUnit.assertTrue(wait.until(ExpectedConditions.invisibilityOf(caliber.getImportBatchModal())));
+	}
+	@Test(priority=9)
+	public void importNewBatch() {
+		caliber.getImportBatchSelector().click();
+		String text = wait.until(ExpectedConditions.visibilityOf(caliber.getImportBatchLastItem())).getText();
+		caliber.getImportBatchLastItem().click();
+		AssertJUnit.assertEquals(text, caliber.getImportBatchTrainingName().getText());
+		caliber.getImportSelectLocation().click();
+		String loctext = wait.until(ExpectedConditions.visibilityOf(caliber.getImportSelectedLocation())).getText();
+		caliber.getImportSelectedLocation().click();
+		caliber.getImportBatchSubmitButton().click();
+		AssertJUnit.assertTrue(wait.until(ExpectedConditions.invisibilityOf(caliber.getImportBatchModal())));
+	}
 //	@Test
 //	public void goToManageBatch() {
 //		driver.get("https://dev-caliber.revature.tech/caliber/#/vp/manage");
