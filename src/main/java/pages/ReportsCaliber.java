@@ -26,7 +26,7 @@ public class ReportsCaliber {
 		WebElement webEl = getBatchDropdown();
 		List<WebElement> webEls = webEl.findElements(By.tagName("li"));
 		//System.out.println(webEls.size());
-		return webEls.get(webEls.size()-2);
+		return webEls.get(webEls.size()-3);
 	}
 	public WebElement selectQCNote() {
 		return driver.findElement(By.xpath("//*[@id=\"Jason Steinberg\"]/a"));
