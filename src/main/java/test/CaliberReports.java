@@ -1,11 +1,10 @@
-package basicTest;
+package test;
 
 import org.testng.annotations.Test;
 
 import pages.MainCaliber;
 import pages.ReportsCaliber;
 
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
@@ -18,7 +17,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
@@ -87,27 +85,20 @@ public class CaliberReports {
 		//caliber.selectTechSkillsOptionMenu().click();
 		System.out.println("check 1");
 		//Thread.sleep(1000);
-		WebElement techModal = wait.until(ExpectedConditions.visibilityOf(caliber.getTechSkillsModal()));
+		wait.until(ExpectedConditions.visibilityOf(caliber.getTechSkillsModal()));
 		caliber.toggleFifthTraineeInChart().click();
 		System.out.println("check 2");
 		caliber.closeModal().click();
-		Boolean e = wait.until(ExpectedConditions.invisibilityOf(caliber.getTechSkillsModal()));
+		wait.until(ExpectedConditions.invisibilityOf(caliber.getTechSkillsModal()));
 		System.out.println("check 3");
 		//Thread.sleep(1000);
 		Assert.assertEquals(caliber.getTechSkillsTableHeadingCount(), (precount+1));
 	}
-	
 	@Test(priority=3)
-	public void selectByWeek() throws InterruptedException {
+	public void selectByWeekAndTrainee() throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOf(caliber.getDropdowns()));
 		wait.until(ExpectedConditions.visibilityOf(caliber.getWeekDropdown())).click();
 		wait.until(ExpectedConditions.visibilityOf(caliber.selectWeek1())).click();
-		
-		Assert.assertTrue(caliber.getDoughnut() != null);
-	}
-	@Test(priority=4)
-	public void selectByWeekAndTrainee() throws InterruptedException {
-		selectByWeek();
 		wait.until(ExpectedConditions.visibilityOf(caliber.getTraineeDropdown())).click();
 		int i =(int) (Math.random() * (caliber.getTraineeDropdown().findElements(By.tagName("li")).size()-1));
 		//System.out.println(i);

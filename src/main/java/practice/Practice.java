@@ -9,6 +9,9 @@ import java.util.Properties;
 
 import org.testng.TestNG;
 
+
+
+
 public class Practice {
 
 	public static void main(String[] args) throws IOException {
@@ -20,6 +23,7 @@ public class Practice {
 		testng.setTestSuites(suites);
 		testng.run();
 		/*
+		 * 
 		Properties props = new Properties();
 		FileInputStream in; 
 		in = new FileInputStream("src/main/resources/connection.properties");
@@ -29,6 +33,7 @@ public class Practice {
 		System.out.println(props.getProperty("password"));
 		System.out.println(props.getProperty("name3"));
 		*/
+		System.getProperties().list(System.out);
 
 	}
 }

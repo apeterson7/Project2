@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -29,11 +34,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/IDE/spring-tool-suite-3.9.5.RELEASE-e4.8.0-win32-x86_64/sts-bundle/sts-3.9.5.RELEASE/plugins/org.testng_6.14.2.r201802161450.jar" sourcepath="C:/IDE/spring-tool-suite-3.9.5.RELEASE-e4.8.0-win32-x86_64/sts-bundle/sts-3.9.5.RELEASE/plugins/org.testng.source_6.14.2.r201802161450.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
