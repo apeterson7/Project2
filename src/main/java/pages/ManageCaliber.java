@@ -58,6 +58,13 @@ public class ManageCaliber {
 	public WebElement getPassingGradeFromLastRow() {
 		return driver.findElement(By.cssSelector("#manage > div:nth-child(2) > div > div > table > tbody > tr:last-child > td:nth-child(10)"));
 	}
+	// view batch trainees
+	public WebElement getTraineeButton() {
+		return driver.findElement(By.cssSelector("#manage > div:nth-child(2) > div > div > table > tbody > tr:last-child > td:nth-child(11) > a"));
+	}
+	public WebElement getTraineeModal() {
+		return driver.findElement(By.cssSelector("#viewTraineeModal"));
+	}
 	// Create Batch
 	public WebElement getCreateBatchLink() {
 		return driver.findElement(By.cssSelector("li[data-target='#createBatchModal']"));
